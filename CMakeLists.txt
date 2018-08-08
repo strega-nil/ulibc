@@ -11,7 +11,12 @@ target_compile_options(ulibc
   PRIVATE
     -Wall -Wextra -pedantic)
 
-target_link_libraries(ulibc ulibc-start)
+target_link_libraries(ulibc
+  PUBLIC
+    ulibc-start
+
+    -nostdlib
+    -nodefaultlibs)
 
 target_include_directories(ulibc
   PUBLIC
